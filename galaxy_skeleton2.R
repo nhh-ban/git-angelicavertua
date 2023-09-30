@@ -111,3 +111,21 @@ View(galaxies)
 galaxies <- galaxies[-c(1:13), ]
 nrow(galaxies) #796
 
+
+################### PROBLEM 2 -------
+#create a plot that reveals the tendency of smaller objects to be under-represented 
+#in the sample 
+
+library(ggplot2)
+
+ggplot(galaxies, aes(x = a_26, y = m_b)) +
+  geom_point(alpha = 0.5, color = "blue") +
+  labs(title = "Galaxy Size vs. Absolute Magnitude",
+       x = "Galaxy Size (kpc)",
+       y = "Absolute Magnitude (m_b)")
+
+#in this plot we compare "a_26" (linear diameter of the galaxy) against the variable "m_b" (absolute magnitude)
+#to test if there is a relationship between this two variables.
+#Smaller galaxies will tend to have higher absolute magnitudes, as they are fainter. 
+#As we can see in the plot there are some small galaxies that have an high absolute 
+#magnitude, indicating probably under-representation of smaller objects in the sample.
