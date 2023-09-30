@@ -2,9 +2,9 @@
 # Skeleton file 2 for Assignment 1 in BAN400. 
 # -------------------------------------------
 
-# More detailed steps to complete Problem 1.
+# More detailed steps to complete Problem 2 ------
 
-library(tidyverse)    # Contains most of what we need.
+library(tidyverse)    
 
 # Read the entire data file into memory using the readLines()-function. Use the
 # URL direcly or read the data from the local file that is in the repository.
@@ -16,6 +16,7 @@ library(tidyverse)    # Contains most of what we need.
 # the file does not end with an "end of line"-character (EOL). This does not
 # seem to pose a problem later, and it seems that we can silece the warning by
 # switchin off the "warn"-argument. Do that if you wish.
+
 raw_file <- readLines(con = "http://www.sao.ru/lv/lvgdb/article/suites_dw_Table1.txt")
 
 # Identify the line number L of the separator line between the column names and
@@ -31,11 +32,13 @@ raw_file <- readLines(con = "http://www.sao.ru/lv/lvgdb/article/suites_dw_Table1
 
 # What do you need to replace the two question marks with in order to extract
 # the first two letters?
+
 substr(x = raw_file, start = 1, stop = 2)
 
 # The next step is then to find out *which* line starts with "--", and pick out
 # the first one. This can be done in a nice little pipe, where you have to fill
 # out the question marks and the missing function names:
+
 L <- 
   (substr(x = raw_file, start = 1, stop = 2) == "--") %>% 
   which(. == TRUE) %>% 
@@ -47,6 +50,7 @@ L <-
 # "raw_file"-vector on a separate line we also provide the sep-argument, where
 # we put the "end-of-line"-character "\n". We also need to come up with a file
 # name. Replace the question marks:
+
 cat(raw_file[1:(L-2)], sep = "\n", file = "variable descriptions")
 
 
@@ -96,6 +100,7 @@ cat(comma_separated_values_with_names, sep = "\n", file = "output_csv_file")
 
 # Read the file back in as a normal csv-file. The readr-package is part of
 # tidyverse, so it is already loaded.
+
 galaxies <- read_csv("output_csv_file")
 View(galaxies)
 
@@ -112,7 +117,7 @@ galaxies <- galaxies[-c(1:13), ]
 nrow(galaxies) #796
 
 
-################### PROBLEM 2 -------
+################### PROBLEM 3 -------
 #trasforme some variables from character to numeric
 
 galaxies$a_26 <- as.numeric(galaxies$a_26)
