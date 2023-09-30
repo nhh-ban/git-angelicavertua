@@ -113,6 +113,19 @@ nrow(galaxies) #796
 
 
 ################### PROBLEM 2 -------
+#trasforme some variables from character to numeric
+
+galaxies$a_26 <- as.numeric(galaxies$a_26)
+galaxies$m_b <- as.numeric(galaxies$m_b)
+galaxies$log_lk <- as.numeric(galaxies$log_lk)
+galaxies$log_m26 <- as.numeric(galaxies$log_m26)
+galaxies$log_mhi <- as.numeric(galaxies$log_mhi)
+galaxies$vlg <- as.numeric(galaxies$vlg)
+galaxies$ti1 <- as.numeric(galaxies$ti1)
+galaxies$D <- as.numeric(galaxies$D)
+galaxies$delta_vlg <- as.numeric(galaxies$delta_vlg)
+galaxies$count <- as.numeric(galaxies$count)
+
 #create a plot that reveals the tendency of smaller objects to be under-represented 
 #in the sample 
 
@@ -125,7 +138,7 @@ ggplot(galaxies, aes(x = a_26, y = m_b)) +
        y = "Absolute Magnitude (m_b)")
 
 #in this plot we compare "a_26" (linear diameter of the galaxy) against the variable "m_b" (absolute magnitude)
-#to test if there is a relationship between this two variables.
+#to see what is the relationship between this two variables.
 #Smaller galaxies will tend to have higher absolute magnitudes, as they are fainter. 
-#As we can see in the plot there are some small galaxies that have an high absolute 
+#As we can see in the plot most of the small galaxies have an high absolute 
 #magnitude, indicating probably under-representation of smaller objects in the sample.
